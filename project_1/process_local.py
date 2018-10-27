@@ -14,11 +14,15 @@ All the above steps should be in one function called process_image()
 """
 
 # TODO: Import OpenCV
-
+import cv2
 
 # TODO: Edit this function
 def process_image():
-    return
+  cv2.imwrite("geisel1.jpg", cv2.imread("geisel.jpg", 0))
+  src = cv2.imread("geisel1.jpg", 0)
+  dst = cv2.resize(src, (0,0), fx=.5, fy=.5)
+  cv2.imwrite("geisel2.jpg", dst)
+  return
 
 # Just prints 'Hello World! to screen.
 def hello_world():
@@ -28,6 +32,7 @@ def hello_world():
 # TODO: Call process_image function.
 def main():
     hello_world()
+    process_image()
     return
 
 
