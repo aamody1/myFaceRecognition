@@ -15,12 +15,14 @@ All the above steps should be in one function called process_image()
 
 # TODO: Import OpenCV
 import cv2
-
+import math
 # TODO: Edit this function
 def process_image():
   cv2.imwrite("geisel1.jpg", cv2.imread("geisel.jpg", 0))
   src = cv2.imread("geisel1.jpg", 0)
   dst = cv2.resize(src, (0,0), fx=.5, fy=.5)
+  cv2.rectangle(dst, (math.floor(dst.shape[0]/2-50),math.floor(dst.shape[1]/2-50)),
+       (math.floor(dst.shape[0]/2+50),math.floor(dst.shape[1]/2+50)), (255, 0, 0), 1)
   cv2.imwrite("geisel2.jpg", dst)
   return
 
